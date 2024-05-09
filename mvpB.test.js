@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
+import { JavascriptModulesPlugin } from 'webpack'
 
 describe('Sprint 7 Challenge Learner Tests', () => {
   /*
@@ -14,6 +15,13 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     [4] sum('1', 2) // returns 3
     [5] sum('10', '3') // returns 13
   */
+    test('sum function tests', () => {
+      expect(() => sum()).toThrow('pass valid numbers');
+      expect(() => sum(2, 'seven')).toThrow('pass valid numbers');
+      expect(sum(1, 3)).toBe(4);
+      expect(sum('1', 2)).toBe(3);
+      expect(sum('10', '3')).toBe(13);
+    })
 
   /*
   👉 TASK 2 - Integration Testing of HelloWorld component at the bottom of this module
@@ -28,11 +36,20 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     [4] renders a text that reads "The Truth"
     [5] renders a text that reads "JavaScript is pretty awesome"
     [6] renders a text that includes "javaScript is pretty" (use exact = false)
-  */
-  test('you can comment out this test', () => {
+    /* test('you can comment out this test', () => {
     expect(true).toBe(false)
   })
-})
+})*/
+  test('HelloWorld component tests', () => {
+    render(<HelloWorld />);
+    expect(screen.queryByText('Home')).toBeInTheDocument();
+    expect(screen.queryByText('About')).toBeInTheDocument();
+    expect(screen.queryByText('Blog')).toBeInTheDocument();
+    expect(screen.queryByText('The Truth')).toBeInTheDocument();
+    expect(screen.queryByText('JavaScript is pretty awesome')).toBeInTheDocument();
+  expect(screen.queryByText(/javaScript is pretty/i)).toBeInTheDocument();
+});
+});  
 
 function sum(a, b) {
   a = Number(a)
