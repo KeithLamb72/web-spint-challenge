@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { NavLink, Routes, Route } from 'react-router-dom';
-import Home from './Home'
-import Form from './Form'
+import Home from './Home';
+import Form from './Form';
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/order" element={<Form />} />
       </Routes>
-    </div>>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
