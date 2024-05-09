@@ -61,9 +61,10 @@ export default function Form() {
       const res = await axios.post('http://localhost:9009/api/order', formValues)
       setSuccessMessage(res.data.message)
       setFailureMessage('')
+      setFormValues({ fullName: '', size: '', toppings: [] }) // Clear form on success
     } catch (err) {
       setSuccessMessage('')
-      setFailureMessage(err.response?.data?.message || 'Something went wrong')
+      setFailureMessage(err.response?.data?.message || 'Something went wrong.')
     }
   }
 
@@ -95,7 +96,12 @@ export default function Form() {
       <div className="input-group">
         <div>
           <label htmlFor="size">Size</label><br />
-          <select id="size" name="size" value={formValues.size} onChange={handleChange}>
+          <select 
+          id="size" 
+          name="size" 
+          value={formValues.size} 
+          onChange={handleChange}
+          >
             <option value="">----Choose Size----</option>
             <option value="S">Small</option>
             <option value="M">Medium</option>
