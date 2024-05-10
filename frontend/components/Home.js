@@ -7,11 +7,11 @@ function Home() {
   const goToOrder = () => navigate('/order')
   return (
     <div>
-      <h2>
-        Welcome to Bloom Pizza!
-      </h2>
-      <img alt="order-pizza" style={{ cursor: 'pointer' }} src={pizza}  onClick={goToOrder}/>
-    </div>
+    <h2>
+      Welcome to Bloom Pizza!
+    </h2>
+    <img alt="order-pizza" style={{ cursor: 'pointer' }} src={pizza}  onClick={goToOrder}/>
+  </div>
   )
 }
 
